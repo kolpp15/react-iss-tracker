@@ -13,14 +13,26 @@ function App() {
   }, [])
 
   const getLocation = async () => {
-    setLoading(true) 
+    setLoading(true);
+    const res = await axios.get('http://api.open-notify.org/iss-now.json');
+    const { longitude, latitude } = await res.data.iss_position;
+
+    setLongitude(parseFloat(longitude));
+    setLatitude(parseFloat(latitude));
+    setLoading(false);
+
+    console.log({longitude, latitude})
+    console.log(res.data.iss_position);
+    // console.log('this is position>>>', res.data.iss_position);
+    // console.log('this is lat>>>', res.data.iss_position.latitude);
+    // console.log('this is long>>>', res.data.iss_position.longitude);
   }
  
   return (
     <div className="App">
       {
         !loading ? (
-        <Map center={{ lat: latitude, lng: longitude}}/> 
+        <Map center={{ lat: latitude, lng: longitude}} zoom={3}/> 
         ) : (
         <h1> Loading </h1>
         )}
