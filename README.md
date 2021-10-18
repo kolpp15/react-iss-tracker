@@ -3,7 +3,7 @@ Simple International Space Station tracker implementing in Google Maps using Rea
 
 # Screenshots
 ### Homepage
-!["Home"]()
+!["Home"](https://github.com/kolpp15/react-iss-tracker/blob/master/src/components/Home.png?raw=true)
 
 # Getting Started
 1. Fork this repository, then clone your fork of this repository.
